@@ -12,6 +12,7 @@
   <!-- Player Name -->
   <h1>Pete's page</h1>
   <div class="stat-board">
+    <!-- Player Name -->
     <div class="player-name"><h3>Pete</h3></div>
     <div class="player-photo">Image here</div>
     <div class="player-HI"><h3>HI</h3><span id="HI-value">00</span></div>
@@ -28,6 +29,7 @@
     import { renderCappedHIandLHI, calculateHI, lowestHI, calculateHIWithExceptionalScores, calculateHandicapDifferential } from "/helperModules.js";
     // Input sheet number
     const data = await fetchAndRenderTable("1aftm8hpBj7vWlZK4Y5Rodv6XYheLngd5k1g-jkkVbiQ", "6", "table");
+    renderCappedHIandLHI(calculateHI(data), lowestHI(data));
   </script>
 </body>
 </html>
