@@ -47,14 +47,32 @@ export function calculateHandicapDifferential(score, courseObject) {
 
 
 export function calculateHI(games) {
+  let noOfTopGames = 
+    games.length < 6
+      ? 1
+      : games.length < 9
+        ? 2
+        : games.length < 12
+          ? 3
+          : games.length < 15
+            ? 4
+            : games.length < 17
+              ? 5
+              : games.length < 19
+                ? 6
+                : games.length < 20
+                  ? 7
+                  : 8;
   const differentials = 
     games
       .slice()
       .sort((a,b) => +b[0].numericValue - +a[0].numericValue) // sorts by date
       .slice(0,20) // picks top 20
-      .map(row => calculateHandicapDifferential(+row[2].$t, createCourseObject(row[1].$t)))
+      .map(row => calculateHandicapDifferential(+row[2].$t, 
+        createCourseObject(row[1].$t)))
       .sort((a,b) => a - b) // sorts by score
-      .slice(0,8) // picks top 8
+      .slice(0, noOfTopGames) // picks top 8
+      console.log("differentials (top 8): ",differentials);
   return differentials
       .reduce((a,b) => a + b, 0) / differentials.length
 }
