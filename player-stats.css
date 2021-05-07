@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-board {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgb(230, 153, 125);
+  margin: 10px;
+  padding: 10px;
+}

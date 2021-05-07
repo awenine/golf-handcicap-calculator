@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="player-stats.css">
+  <!-- Player Name -->
+  <title>Bill</title>
+</head>
+<body>
+  <!-- Player Name -->
+  <h1>Bill's page</h1>
+  <div class="stat-board">
+    <div class="player-name"><h3>Pete</h3></div>
+    <div class="player-photo">Image here</div>
+    <div class="player-HI"><h3>HI</h3><span id="HI-value">00</span></div>
+    <div class="player-LHI"><h3>LHI</h3><span id="LHI-value">00</span></div>
+  </div>
+  <table id="table">
+    <th>Date</th>
+    <th>Course</th>
+    <th>Score</th>
+  </table>
+  <a href="/index.html">HOME</a>
+  <script type="module">
+    import { fetchAndRenderTable } from "/services.js";
+    import { renderCappedHIandLHI, calculateHI, lowestHI } from "/helperModules.js";
+    // Input sheet number
+    const data = await fetchAndRenderTable("1aftm8hpBj7vWlZK4Y5Rodv6XYheLngd5k1g-jkkVbiQ", "3", "table");
+    renderCappedHIandLHI(calculateHI(data), lowestHI(data));
+  </script>
+</body>
+</html>
