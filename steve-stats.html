@@ -26,7 +26,7 @@
   <a href="/index.html">HOME</a>
   <script type="module">
     import { fetchAndRenderTable } from "/services.js";
-    import { renderCappedHIandLHI, calculateHI, lowestHI, calculateHandicapDifferential } from "/helperModules.js";
+    import { renderCappedHIandLHI, calculateHI, lowestHI, calculateHIWithExceptionalScores, calculateHandicapDifferential } from "/helperModules.js";
     // Input sheet number
     const data = await fetchAndRenderTable("1aftm8hpBj7vWlZK4Y5Rodv6XYheLngd5k1g-jkkVbiQ", "3", "table");
     renderCappedHIandLHI(calculateHI(data), lowestHI(data));
